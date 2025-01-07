@@ -1,0 +1,31 @@
+ curl http://localhost:8080/items \
+    --include \
+    --header "Content-Type: application/json" \
+    --request "POST" \
+    --data '{"id": "4","name": "potato","type": "vegetable","price": 49.99}'
+
+
+    curl http://localhost:8080/items \
+    --header "Content-Type: application/json" \
+    --request "GET"
+
+    curl http://localhost:8080/items 
+
+
+    curl http://localhost:8080/items/3
+
+
+delete
+curl -X DELETE http://localhost:8080/items/3
+
+all items 
+
+curl -X GET http://localhost:8080/items
+
+fetch item by id 
+
+curl -X GET http://localhost:8080/items/1
+
+update item 
+
+curl -X PUT -H "Content-Type: application/json" -d '{"id": "4","name": "cabbage","type": "vegetable","price": 49.99}' http://localhost:8080/items/3
