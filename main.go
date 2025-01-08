@@ -27,7 +27,7 @@ func main() {
     router.POST("/items", addItem)
 	router.DELETE("/items/:id",deleteItem)
 	router.PUT("/items/:id",updateItem)
-    router.Run("localhost:8080")
+    router.Run(":8080")
 }
 
 // getItems responds with the list of all getItems present in a grocery store as JSON.
