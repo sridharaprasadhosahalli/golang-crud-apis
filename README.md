@@ -76,3 +76,18 @@ curl -X PUT -H "Content-Type: application/json" -d '{"id": "4","name": "cabbage"
 - Delete a item by ID:
 
 curl -X DELETE http://localhost:8080/items/3
+
+## Dockerization of golang-crud-apis
+ 
+## Building Docker image 
+
+docker build --tag docker-golang-crud-apis .
+
+## Checking Built docker image 
+
+docker image ls
+
+## Running the Built docker image 
+
+docker run -d -p 8080:8080 docker-golang-crud-apis
+
