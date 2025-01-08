@@ -57,6 +57,9 @@ func addItem(c *gin.Context) {
     // Call BindJSON to bind the received JSON to
     // item.
     if err := c.BindJSON(&newItem); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+            "Bad Request ": err.Error(),
+        })
         return
     }
 
@@ -88,6 +91,9 @@ func updateItem(c *gin.Context) {
 	// Call BindJSON to bind the received JSON to
     // item.
     if err := c.BindJSON(&newItem); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+            "Bad Request ": err.Error(),
+        })
         return
     }
 
