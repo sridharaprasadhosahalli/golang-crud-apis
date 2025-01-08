@@ -1,5 +1,5 @@
 
-FROM golang:1.23.4
+FROM golang:1.23.4 AS build-stage
 
 # Set destination for COPY
 WORKDIR /app
@@ -14,7 +14,20 @@ COPY *.go ./
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -o /docker-golang-crud-apis
 
+# Run the tests in the container
+FROM build-stage AS run-test-stage
+
+RUN go test -v ./...
+
+# Deploy the application binary into a lean image
+FROM gcr.io/distroless/base-debian11 AS build-release-stage
+
+WORKDIR /
+
+COPY --from=build-stage /docker-golang-crud-apis /docker-golang-crud-apis
+
 EXPOSE 8080
 
-# Run
-CMD ["/docker-golang-crud-apis"]
+USER nonroot:nonroot
+
+ENTRYPOINT ["/docker-golang-crud-apis"]
