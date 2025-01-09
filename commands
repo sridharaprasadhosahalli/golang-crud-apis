@@ -66,5 +66,19 @@ creating deployment using kubectl
 
 --kubectl apply -f deployment.yaml
 
+create k8s service 
+
+--kubectl create -f service.yml
+
+--kubectl get pods -o wide
+
+--kubectl get po,svc,deployment,ep --show-labels
+
+to list services by minikube
+--minikube service --all
+
+to login inside minikube 
+minikube ssh
+
 
 
