@@ -80,5 +80,13 @@ to list services by minikube
 to login inside minikube 
 minikube ssh
 
+stop minikube 
+ 
+ minikube stop
+
+ delete minikube 
+
+ minikube delete
+
 
 
