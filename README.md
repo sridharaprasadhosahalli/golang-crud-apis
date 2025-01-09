@@ -77,7 +77,10 @@ curl -X PUT -H "Content-Type: application/json" -d '{"id": "4","name": "cabbage"
 
 curl -X DELETE http://localhost:8080/items/3
 
-## Dockerization of golang-crud-apis
+## Dockerization of golang-crud-apis.
+## Make sure docker desktop is installed .
+
+cd golang-crud-apis
  
 ## Building Docker image 
 
@@ -90,4 +93,10 @@ docker image ls
 ## Running the Built docker image 
 
 docker run -d -p 8080:8080 docker-golang-crud-apis
+
+## Run the test cases for Go in docker 
+
+docker build -f Dockerfile -t docker-golang-crud-apis-test --progress plain --no-cache --target run-test-stage .
+
+
 

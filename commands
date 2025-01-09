@@ -22,12 +22,49 @@ curl -X PUT -H "Content-Type: application/json" -d '{"id": "4","name": "cabbage"
 
 command to build docker image 
 
-docker build --tag docker-golang-crud-apis .
+--docker build --tag sridharaprasadhosahalli/golang-crud-apis .
 
-docker image ls
+--docker image ls
 
-docker run  docker-golang-crud-apis
+--docker run  sridharaprasadhosahalli/golang-crud-apis
 
-docker container ls
+--docker container ls
 
-docker run -d -p 8080:8080 docker-golang-crud-apis
+--docker run -d -p 8080:8080 sridharaprasadhosahalli/golang-crud-apis
+
+--docker build -f Dockerfile -t docker-golang-crud-apis-test --progress plain --no-cache --target run-test-stage .
+
+pushing built image to docker hub 
+
+--docker push sridharaprasadhosahalli/golang-crud-apis
+
+commands for minikube 
+ 
+ installing minikube 
+
+-- curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-darwin-arm64
+
+--sudo install minikube-darwin-arm64 /usr/local/bin/minikube
+
+starting minikube 
+
+--minikube start --driver=docker
+
+install kubectl 
+
+
+stopping minikube 
+
+--minikube delete --all
+
+docker hub repository 
+ 
+ --https://hub.docker.com/repository/docker/sridharaprasadhosahalli/golag-crud-api/
+
+
+creating deployment using kubectl 
+
+--kubectl apply -f deployment.yaml
+
+
+
