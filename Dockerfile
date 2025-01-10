@@ -26,8 +26,10 @@ WORKDIR /
 
 COPY --from=build-stage /docker-golang-crud-apis /docker-golang-crud-apis
 
+#expose 8080 to outside
 EXPOSE 8080
 
+#to be run as non root
 USER nonroot:nonroot
 
 ENTRYPOINT ["/docker-golang-crud-apis"]
